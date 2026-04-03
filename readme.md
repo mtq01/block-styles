@@ -1,3 +1,5 @@
+## Creating Block Styles - Workflow
+
 ### Step 1:
 
 **Open your theme in VSCode.**
@@ -6,6 +8,9 @@
 - `styles/blocks/` *(for your `.json` block variations).*
 - `assets/css/blocks/` *(for the specific CSS that goes with each variation).*    
 - **Create a unique `.json` file** (ex. `paragraph-glow.json`) inside `styles/blocks/`
+    - [important]: your .json file name needs to follow a certain pattern, but only bcuz of how i've setup the 'unviersal loader' inside functions.php (if you aren't loading multiple block styles, use the 'bs_register_block_styles()' function instead and remove the code for universal loader). 
+
+    - [important] here is the naming convention: blockType-name.json. (ex: paragraph-glow.json)
 
 
 ### Step 2:

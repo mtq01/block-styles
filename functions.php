@@ -35,12 +35,64 @@ function bs_register_block_styles()
 
         - only load the CSS if a 'glow' paragraph block is used on the page  */
     wp_enqueue_block_style('core/paragraph', array(
-        'handle' => 'bs-glow-style',
+        'handle' => 'bs-style-glow',
         'src' => get_theme_file_uri('assets/css/blocks/paragraph-glow.css'),
         'path' => get_theme_file_path('assets/css/blocks/paragraph-glow.css')
     ));
 }
 add_action('init', 'bs_register_block_styles');
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------
+// [universal loader]
+// 'bs_register_custom_block_styles_universal()' replaces 'bs_register_block_styles' / 'register_block_style()' 
+// function. used if loading more than a couple different block styles. 
+// [note]: scans '/styles/blocks/ for .json files and registers them automatically.
+
+/*
+function bs_register_custom_block_styles_universal() {
+    $dir = get_theme_file_path('/styles/blocks/');
+
+    if ( is_dir( $dir ) ) {
+        $files = glob( $dir . '*.json' );
+
+        foreach ( $files as $file ) {
+            $slug = basename( $file, '.json' );
+            $parts = explode('-', $slug);
+
+            // shift the first word out as the block type
+            $block_name = array_shift($parts); 
+            
+            // join everything else as the style name
+            $style_name = implode('-', $parts); 
+
+            // register the block style variant
+            register_block_style(
+                "core/$block_name",
+                array(
+                    'name'  => $style_name,
+                    'label' => ucwords(str_replace('-', ' ', $style_name)),
+                    'is_default' => false,
+                )
+            );
+
+            // load the matching CSS file (only if its on page)
+            wp_enqueue_block_style("core/$block_name", array(
+                'handle' => "bs-style-$slug",
+                'src'    => get_theme_file_uri("/assets/css/blocks/$slug.css"),
+                'path'   => get_theme_file_path("/assets/css/blocks/$slug.css"),
+            ));
+        }
+    }
+}
+add_action('init', 'bs_register_custom_block_styles_universal');
+
+*/
+
+// ------------------------------------------------------------------------------------------------------------
 
 
 
