@@ -54,32 +54,32 @@ add_action('init', 'bs_register_block_styles');
 
 /*
 function bs_register_custom_block_styles_universal() {
-    $directory = get_theme_file_path('/styles/blocks/');
+    $dir = get_theme_file_path('/styles/blocks/');
 
-    if ( is_dir( $directory ) ) {
-        $files = glob( $directory . '*.json' );
+    if ( is_dir( $dir ) ) {
+        $files = glob( $dir . '*.json' );
 
         foreach ( $files as $file ) {
             $slug = basename( $file, '.json' );
-            
-            // dismantle file name. ex: change "paragraph-glow" to get "paragraph" as the block_name
-            // for this to work, your file name needs to start with its block type.
-            // otherwise "core/$block_name" below won't register properly.
             $parts = explode('-', $slug);
-            $block_name = $parts[0]; 
-            $style_name = $parts[1];
 
-            // register style in UI
+            // shift the first word out as the block type
+            $block_name = array_shift($parts); 
+            
+            // join everything else as the style name
+            $style_name = implode('-', $parts); 
+
+            // register the block style variant
             register_block_style(
                 "core/$block_name",
                 array(
                     'name'  => $style_name,
-                    'label' => ucwords($style_name),
+                    'label' => ucwords(str_replace('-', ' ', $style_name)),
                     'is_default' => false,
                 )
             );
 
-            // enqueue the specific CSS file for this style (only if its used on a page)
+            // load the matching CSS file (only if its on page)
             wp_enqueue_block_style("core/$block_name", array(
                 'handle' => "bs-style-$slug",
                 'src'    => get_theme_file_uri("/assets/css/blocks/$slug.css"),
