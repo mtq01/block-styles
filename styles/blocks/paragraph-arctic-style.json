@@ -1,0 +1,25 @@
+{
+  "version": 3,
+  "title": "Arctic",
+  "blockTypes": ["core/paragraph"],
+  "styles": {
+"color": {
+      "text": "var(--wp--preset--color--arctic-text)"
+    },
+    "border": {
+        "radius": "5rem"
+    },
+    "spacing": {
+        "padding": "var(--wp--preset--spacing--large)"
+    },
+    "typography": {
+      "fontSize": "1.2rem",
+      "lineHeight": "1.5",
+      "fontStyle": "normal",
+      "fontWeight": "500",
+      "letterSpacing": "1px",
+      "textTransform": "capitalize"
+  
+    }
+  }
+}

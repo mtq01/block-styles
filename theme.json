@@ -19,6 +19,24 @@
           "color": "#ffffff",
           "name": "White",
           "slug": "p-text"
+        },
+
+        {
+          "color": "#05104f",
+          "name": "Arctic Base",
+          "slug": "arctic-base"
+        },
+        {
+          "color": "#89d4e8",
+          "name": "Arctic Color",
+          "slug": "arctic-color"
+
+        },
+        {
+          "color": "#edf6f7",
+          "name": "Ice",
+          "slug": "arctic-text"
+
         }
       ]
     },
