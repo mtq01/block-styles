@@ -1,0 +1,59 @@
+/* ++++++++++ [Glow]: PARAGRAPH STYLE (CUSTOM) ++++++++++ */
+
+/* IMPORTANT
+in 'custom-para-style.json' the values can and probably should be mapped to the var(--presets) in the theme.json file.
+
+specifically for BG & color because this will cause it to show up correctly in the UI circles under 'color' instead of leaving them blank.
+
+it's weird... i'll show a demo
+*/
+
+.is-style-glow {
+    /* shape */
+    display: block;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+
+    /* material */
+    background-color: var(--wp--preset--color--glow-base);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    /* variable */
+    --glow: var(--wp--preset--color--glow-color);
+
+    /* border */
+    border: 1px solid rgb(from var(--glow) r g b / 0.5);
+
+    /* box shdaow */
+    box-shadow:
+        /* outer halo */
+        0 0 15px rgb(from var(--glow) r g b / .75),
+        /* inner light */
+        inset 0 0 10px rgb(from var(--glow) r g b / 0.45);
+
+    /* typography */
+    color: var(--wp--preset--color--p-text);
+    transition: all 0.5s ease;
+}
+
+/* glow on hover */
+p.is-style-glow:hover {
+
+    /* lift slightly */
+    transform: translateY(-4px);
+
+    /* box shadows for glow */
+    --glow: var(--wp--preset--color--glow-color);
+    box-shadow:
+        /* light source */
+        0 0 10px var(--glow),
+        /* halo effect */
+        0 0 40px rgb(from var(--glow) r g b / 0.6),
+        /* ambient light */
+        0 0 80px rgb(from var(--glow) r g b / 0.2);
+
+    /* border color */
+    border-color: var(--wp--preset--color--glow-color);
+}
