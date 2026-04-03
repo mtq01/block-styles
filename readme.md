@@ -1,3 +1,5 @@
+## Creating a Block Style - Workflow
+
 ### Step 1:
 
 **Open your theme in VSCode.**
