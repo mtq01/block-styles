@@ -87,37 +87,74 @@ add_action('init', 'bs_register_block_styles');
 // [naming convention]: annoying, but the json and css file need to match for this to work & it MUST start with the blocktype (blocktype-name-name.css and blocktype-name-name.css)
     // - example: image-shapes-style.css and image-shapes-style.json
 function bs_register_custom_block_styles_universal() {
+    // path to json folder
     $dir = get_theme_file_path('/styles/blocks/');
 
+    // safety: skip if directory does not exist
     if ( is_dir( $dir ) ) {
+        
+        // find every .json file in the folder
         $files = glob( $dir . '*.json' );
 
         foreach ( $files as $file ) {
+            // convert JSON into an associative array
             $data = json_decode( file_get_contents( $file ), true );
-            $slug = basename( $file, '.json' ); // e.g., 'image-shapes-style'
             
-            // get block type
-            $block_type = $data['blockTypes'][0];
-
-            // register every style inside the JSON
-            if ( isset( $data['styles'] ) ) {
-                foreach ( $data['styles'] as $style ) {
-                    register_block_style( $block_type, array(
-                        'name'  => $style['name'],
-                        'label' => $style['label'],
-                    ) );
-                }
+            // grab filename (ex: 'image-shapes-style' or 'paragraph-glow-style')
+            $slug = basename( $file, '.json' ); 
+            
+            // safety: skip file if 'blockTypes' is missing
+            if ( ! isset( $data['blockTypes'][0] ) ) {
+                continue;
             }
 
-            // link the css
-            wp_enqueue_block_style( $block_type, array(
-                'handle' => "bs-style-$slug",
-                'src'    => get_theme_file_uri( "assets/css/blocks/$slug.css" ),
-                'path'   => get_theme_file_path( "assets/css/blocks/$slug.css" )
-            ) );
+            $block_type = $data['blockTypes'][0];
+
+            // registartion
+            // if the JSON has a 'styles' array (like my image-shapes-style.json file)
+            if ( isset( $data['styles'] ) && is_array( $data['styles'] ) ) {
+                foreach ( $data['styles'] as $style ) {
+
+                    // [prevent warnings] check if keys exist before registering
+                    if ( isset( $style['name'] ) && isset( $style['label'] ) ) {
+                        register_block_style( $block_type, array(
+                            'name'  => $style['name'],
+                            'label' => $style['label'],
+                        ) );
+                    }
+                }
+            } 
+            
+            // if the JSON is a single style (like the paragraph-glow-style.json file)
+            // use 'title' from the JSON and the second half of the filename as the 'name'
+            elseif ( isset( $data['title'] ) ) {
+                // extracts 'glow' from 'paragraph-glow'
+                $name_parts = explode( '-', $slug );
+                $style_name = ( count( $name_parts ) > 1 ) ? $name_parts[1] : $slug;
+
+                register_block_style( $block_type, array(
+                    'name'  => $style_name,
+                    'label' => $data['title'],
+                ) );
+            }
+
+            // style loading: links the json filename to css filename in /assets/css/blocks/
+             
+            $css_uri  = "assets/css/blocks/$slug.css";
+            $css_path = get_theme_file_path( $css_uri );
+
+            // enqueue if the physical CSS file exists
+            if ( file_exists( $css_path ) ) {
+                wp_enqueue_block_style( $block_type, array(
+                    'handle' => "bs-style-$slug",
+                    'src'    => get_theme_file_uri( $css_uri ),
+                    'path'   => $css_path
+                ) );
+            }
         }
     }
 }
+// hook into 'init' & register styles when wp loads
 add_action( 'init', 'bs_register_custom_block_styles_universal' );
 
 // ------------------------------------------------------------------------------------------------------------
