@@ -9,8 +9,10 @@ ul.is-style-checkmark li {
     margin-bottom: 0.5em;
 }
 
+
+/* Unicode: https://unicodeplus.com/ */
 ul.is-style-checkmark li::before {
-    content: "\2713"; /* Unicode for checkmark */
+    content: "\1F5F8";
     position: absolute;
     left: 0;
     color: var(--wp--preset--color--primary, #007cba); 

@@ -55,7 +55,7 @@ function bs_register_block_styles()
         'path' => get_theme_file_path('assets/css/blocks/paragraph-arctic.css')
     ));
 
-    // Custom List Style: Checkmark
+    // Custom List Style: Checkmark--------
     register_block_style(
         'core/list',
         array(
@@ -70,6 +70,7 @@ function bs_register_block_styles()
         'src' => get_theme_file_uri('assets/css/blocks/list-checkmark.css'),
         'path' => get_theme_file_path('assets/css/blocks/list-checkmark.css')
     ));
+    //-----------------------------------
 }
 add_action('init', 'bs_register_block_styles');
 
