@@ -1,0 +1,18 @@
+ul.is-style-checkmark {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.is-style-checkmark li {
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 0.5em;
+}
+
+ul.is-style-checkmark li::before {
+    content: "\2713"; /* Unicode for checkmark */
+    position: absolute;
+    left: 0;
+    color: var(--wp--preset--color--primary, #007cba); 
+    font-weight: bold;
+}

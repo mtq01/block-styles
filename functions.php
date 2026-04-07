@@ -55,9 +55,21 @@ function bs_register_block_styles()
         'path' => get_theme_file_path('assets/css/blocks/paragraph-arctic.css')
     ));
 
+    // Custom List Style: Checkmark
+    register_block_style(
+        'core/list',
+        array(
+            'name' => 'checkmark',
+            'label' => __('Checkmark', 'block-style-theme'),
+            'is_default' => false,
+        )
+    );
 
-
-
+    wp_enqueue_block_style('core/list', array(
+        'handle' => 'bs-list-checkmark',
+        'src' => get_theme_file_uri('assets/css/blocks/list-checkmark.css'),
+        'path' => get_theme_file_path('assets/css/blocks/list-checkmark.css')
+    ));
 }
 add_action('init', 'bs_register_block_styles');
 
