@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "title": "Emoji",
+  "blockTypes": ["core/list"],
+  "styles": {
+    "spacing": {
+      "padding": {
+        "top": "var(--wp--preset--spacing--small)",
+        "bottom": "var(--wp--preset--spacing--small)"
+      }
+    },
+    "typography": {
+      "lineHeight": "1.8"
+    }
+  }
+}

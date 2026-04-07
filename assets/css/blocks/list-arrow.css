@@ -1,0 +1,27 @@
+/* Custom Block Style: Arrow List */
+
+ul.is-style-arrow {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.is-style-arrow li {
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 0.5em;
+    transition: transform 0.2s ease-in-out;
+}
+
+ul.is-style-arrow li:hover {
+    transform: translateX(5px);
+}
+
+ul.is-style-arrow li::before {
+    content: "\2192"; /* Rightwards Arrow */
+    position: absolute;
+    left: 0;
+    color: var(--wp--preset--color--glow-color, #05FC70);
+    font-weight: bold;
+    font-size: 1.2em;
+    top: -0.1em;
+}

@@ -1,0 +1,27 @@
+/* Custom Block Style: Emoji List */
+
+ul.is-style-emoji {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.is-style-emoji li {
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 0.5em;
+}
+
+ul.is-style-emoji li::before {
+    content: "\1F60F"; /* Smirk emoji */
+    left:0;
+    top:0;
+    position: absolute;
+    font-size: 1.2em;
+    transition: transform 0.2s ease;
+}
+
+/* Subtle hover animation */
+ul.is-style-emoji li:hover::before {
+    transform: scale(1.2) rotate(5deg);
+    transition: transform 0.2s ease;
+}
