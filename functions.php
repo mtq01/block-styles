@@ -39,6 +39,25 @@ function bs_register_block_styles()
         'src' => get_theme_file_uri('assets/css/blocks/paragraph-glow.css'),
         'path' => get_theme_file_path('assets/css/blocks/paragraph-glow.css')
     ));
+
+     register_block_style(
+        'core/paragraph',
+        array(
+            'name' => 'arctic', 
+            'label' => __('Arctic', 'block-style-theme'),
+            'is_default' => false,
+        )
+    );
+
+    wp_enqueue_block_style('core/paragraph', array(
+        'handle' => 'bs-arctic-style',
+        'src' => get_theme_file_uri('assets/css/blocks/paragraph-arctic.css'),
+        'path' => get_theme_file_path('assets/css/blocks/paragraph-arctic.css')
+    ));
+
+
+
+
 }
 add_action('init', 'bs_register_block_styles');
 
