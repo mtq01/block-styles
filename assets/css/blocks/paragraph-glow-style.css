@@ -1,12 +1,4 @@
-/* ++++++++++ [Glow]: PARAGRAPH STYLE (CUSTOM) ++++++++++ */
-
-/* IMPORTANT
-in 'custom-para-style.json' the values can and probably should be mapped to the var(--presets) in the theme.json file.
-
-specifically for BG & color because this will cause it to show up correctly in the UI circles under 'color' instead of leaving them blank.
-
-it's weird... i'll show a demo
-*/
+/* .is-style-{name} is automatically added by WP to a block wrappers element when you select your block style variant */
 
 .is-style-glow {
     /* shape */
@@ -17,21 +9,21 @@ it's weird... i'll show a demo
 
     /* material */
     background-color: var(--wp--preset--color--glow-base);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(0.5rem);
+    -webkit-backdrop-filter: blur(0.5rem);
 
     /* variable */
     --glow: var(--wp--preset--color--glow-color);
 
     /* border */
-    border: 1px solid rgb(from var(--glow) r g b / 0.5);
+    border: 0.0625rem solid rgb(from var(--glow) r g b / 0.5);
 
     /* box shdaow */
     box-shadow:
         /* outer halo */
-        0 0 15px rgb(from var(--glow) r g b / .75),
+        0 0 1rem rgb(from var(--glow) r g b / .75),
         /* inner light */
-        inset 0 0 10px rgb(from var(--glow) r g b / 0.45);
+        inset 0 0 0.625rem rgb(from var(--glow) r g b / 0.45);
 
     /* typography */
     color: var(--wp--preset--color--p-text);
@@ -48,11 +40,11 @@ p.is-style-glow:hover {
     --glow: var(--wp--preset--color--glow-color);
     box-shadow:
         /* light source */
-        0 0 10px var(--glow),
+        0 0 0.625rem var(--glow),
         /* halo effect */
-        0 0 40px rgb(from var(--glow) r g b / 0.6),
+        0 0 2.5rem rgb(from var(--glow) r g b / 0.6),
         /* ambient light */
-        0 0 80px rgb(from var(--glow) r g b / 0.2);
+        0 0 5rem rgb(from var(--glow) r g b / 0.2);
 
     /* border color */
     border-color: var(--wp--preset--color--glow-color);

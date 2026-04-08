@@ -83,7 +83,6 @@ function bs_enqueue_block_styles()
         'path'   => get_theme_file_path('assets/css/blocks/list-emoji-style.css'),
     ));
 
-    // MATHAB: duplicate one of the above blocks and change the file paths to match your stuff
 
 
 
