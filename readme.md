@@ -1,3 +1,8 @@
+**Documentation**: 
+https://developer.wordpress.org/themes/features/block-style-variations/
+https://developer.wordpress.org/block-editor/reference-guides/block-api/block-styles/
+
+
 # Block Styles
 
 *There are 2 main for approaches creating block styles:*
