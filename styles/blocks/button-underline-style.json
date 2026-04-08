@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "title": "Underline Button",
+  "blockTypes": ["core/button"],
+  "styles": {
+    "color": {
+      "text": "var(--wp--preset--color--btn-primary)"
+    },
+    "border": {
+      "radius": "0" 
+    },
+    "spacing": {
+      "padding": "0.5rem 1rem"
+    }
+  }
+}

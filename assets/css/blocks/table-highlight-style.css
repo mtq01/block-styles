@@ -1,0 +1,25 @@
+.is-style-hover-highlight-table {
+  background: var(--wp--preset--color--table-bg);
+  border-radius: 1rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--wp--preset--color--table-text);
+  transition: all 0.3s ease;
+}
+
+.is-style-hover-highlight-table table {
+  width: 100%;
+  border-radius: inherit;
+}
+
+.is-style-hover-highlight-table th,
+.is-style-hover-highlight-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.is-style-hover-highlight-table tr:hover {
+  background-color: var(--wp--preset--color--table-row-hover);
+  transform: translateY(-1px);
+}

@@ -83,10 +83,33 @@ function bs_enqueue_block_styles()
         'path'   => get_theme_file_path('assets/css/blocks/list-emoji-style.css'),
     ));
 
-    // MATHAB: duplicate one of the above blocks and change the file paths to match your stuff
+    // Glow Button
+    wp_enqueue_block_style('core/button', array(
+        'handle' => 'bs-button-glow',
+        'src'    => get_theme_file_uri('assets/css/blocks/button-glow-style.css'),
+        'path'   => get_theme_file_path('assets/css/blocks/button-glow-style.css'),
+    ));
 
+    // Shadow Button
+    wp_enqueue_block_style('core/button', array(
+        'handle' => 'bs-button-shadow',
+        'src'    => get_theme_file_uri('assets/css/blocks/button-shadow-style.css'),
+        'path'   => get_theme_file_path('assets/css/blocks/button-shadow-style.css'),
+    ));
 
+    // Underline Button
+    wp_enqueue_block_style('core/button', array(
+        'handle' => 'bs-button-underline',
+        'src'    => get_theme_file_uri('assets/css/blocks/button-underline-style.css'),
+        'path'   => get_theme_file_path('assets/css/blocks/button-underline-style.css'),
+    ));
 
+    // Highlight Table
+    wp_enqueue_block_style('core/table', array(
+        'handle' => 'bs-table-highlight',
+        'src'    => get_theme_file_uri('assets/css/blocks/table-highlight-style.css'),
+        'path'   => get_theme_file_path('assets/css/blocks/table-highlight-style.css'),
+    ));
 
 }
 add_action('init', 'bs_enqueue_block_styles');
