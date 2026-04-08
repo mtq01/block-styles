@@ -1,0 +1,14 @@
+.is-style-underline-button .wp-block-button__link {
+  background: transparent; 
+  color: var(--wp--preset--color--btn-primary);
+  border: none;
+  text-decoration: underline;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.is-style-underline-button .wp-block-button__link:hover {
+  color: var(--wp--preset--color--btn-primary-hover);
+  transform: translateY(-1px);
+}

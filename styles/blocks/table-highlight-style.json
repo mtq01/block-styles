@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "title": "Hover Highlight Table",
+  "blockTypes": ["core/table"],
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--table-bg)",
+      "text": "var(--wp--preset--color--table-text)"
+    },
+    "border": {
+      "radius": "1rem"
+    },
+    "spacing": {
+      "padding": "1rem"
+    }
+  }
+}
