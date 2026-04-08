@@ -35,7 +35,7 @@ add_action('after_setup_theme', 'bs_theme_setup');
 
 // --------------------------------- MODERN ---------------------------------
 
-/*
+
 
 // Modern Method
 // load block-specific CSS (JSON handles registration automatically, this handles the CSS)
@@ -85,7 +85,7 @@ function bs_enqueue_block_styles()
 }
 add_action('init', 'bs_enqueue_block_styles');
 
-*/
+
 
 /*
 
