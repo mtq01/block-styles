@@ -1,0 +1,18 @@
+.is-style-shadow-button .wp-block-button__link {
+  background: var(--wp--preset--color--btn-primary);
+  color: var(--wp--preset--color--btn-text);
+
+  border-radius: 2rem;
+  padding: 0.75rem 1.5rem;
+
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+
+  transition: all 0.3s ease;
+}
+
+.is-style-shadow-button .wp-block-button__link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  background: var(--wp--preset--color--btn-primary-hover);
+}
