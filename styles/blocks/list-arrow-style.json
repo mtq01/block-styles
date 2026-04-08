@@ -1,0 +1,23 @@
+{
+  "version": 3,
+  "title": "Arrow",
+  "blockTypes": ["core/list"], 
+  "styles": {
+    "spacing": {
+      "padding": {
+        "top": "var(--wp--preset--spacing--small)",
+        "bottom": "var(--wp--preset--spacing--small)",
+        "left": "var(--wp--preset--spacing--medium)",
+        "right": "var(--wp--preset--spacing--medium)"
+      }
+    },
+    "typography": {
+      "lineHeight": "1.8",
+      "fontStyle": "italic"
+    },
+    "color": {
+      "background": "var(--wp--preset--color--glow-base)",
+      "text": "var(--wp--preset--color--p-text)"
+    }
+  }
+}

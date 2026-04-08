@@ -68,6 +68,54 @@ function bs_register_block_styles()
         'src' => get_theme_file_uri('assets/css/blocks/image-shapes.css'),
         'path' => get_theme_file_path('assets/css/blocks/image-shapes.css')
     ));
+
+    // Custom List Style: Checkmark
+    register_block_style(
+        'core/list',
+        array(
+            'name' => 'checkmark',
+            'label' => __('Checkmark', 'block-style-theme'),
+            'is_default' => false,
+        )
+    );
+
+    wp_enqueue_block_style('core/list', array(
+        'handle' => 'bs-list-checkmark',
+        'src' => get_theme_file_uri('assets/css/blocks/list-checkmark.css'),
+        'path' => get_theme_file_path('assets/css/blocks/list-checkmark.css')
+    ));
+
+    // Custom List Style: Arrow
+    register_block_style(
+        'core/list',
+        array(
+            'name' => 'arrow',
+            'label' => __('Arrow', 'block-style-theme'),
+            'is_default' => false,
+        )
+    );
+
+    wp_enqueue_block_style('core/list', array(
+        'handle' => 'bs-list-arrow',
+        'src' => get_theme_file_uri('assets/css/blocks/list-arrow.css'),
+        'path' => get_theme_file_path('assets/css/blocks/list-arrow.css')
+    ));
+
+    // Custom List Style: Emoji
+    register_block_style(
+        'core/list',
+        array(
+            'name' => 'emoji',
+            'label' => __('Emoji', 'block-style-theme'),
+            'is_default' => false,
+        )
+    );
+
+    wp_enqueue_block_style('core/list', array(
+        'handle' => 'bs-list-emoji',
+        'src' => get_theme_file_uri('assets/css/blocks/list-emoji.css'),
+        'path' => get_theme_file_path('assets/css/blocks/list-emoji.css')
+    ));
 }
 add_action('init', 'bs_register_block_styles');
 
