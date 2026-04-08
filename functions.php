@@ -82,6 +82,12 @@ function bs_enqueue_block_styles()
         'src'    => get_theme_file_uri('assets/css/blocks/list-emoji.css'),
         'path'   => get_theme_file_path('assets/css/blocks/list-emoji.css'),
     ));
+
+    // MATHAB: duplicate one of the above blocks and change the file paths to match your stuff
+
+
+
+
 }
 add_action('init', 'bs_enqueue_block_styles');
 
