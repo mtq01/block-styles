@@ -56,7 +56,7 @@ function bs_enqueue_block_styles()
     ));
 
     // arctic
-    wp_enqueue_block_style('core/image', array(
+    wp_enqueue_block_style('core/paragraph', array(
         'handle' => 'bs-arctic-style',
         'src'    => get_theme_file_uri('assets/css/blocks/paragraph-arctic-style.css'),
         'path'   => get_theme_file_path('assets/css/blocks/paragraph-arctic-style.css'),
