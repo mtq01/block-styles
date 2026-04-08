@@ -16,9 +16,59 @@
           "slug": "glow-color"
         },
         {
+        "color": "#00ffff",
+        "name": "Button Glow",
+        "slug": "btn-glow"
+        },
+        {
+          "slug": "btn-primary",
+          "color": "#0073e6",
+          "name": "Primary Button"
+        },
+        {
+          "slug": "btn-text",
+          "color": "#ffffff",
+          "name": "Button Text"
+        },
+        {
+          "slug": "btn-primary-hover",
+          "color": "#005bb5",
+          "name": "Button Primary Hover"
+        },
+        {
+          "slug": "table-bg",
+          "color": "#ffffff",
+          "name": "Table Background"
+        },
+        {
+          "slug": "table-text",
+          "color": "#000000",
+          "name": "Table Text"
+        },
+        {
+          "slug": "table-row-hover",
+          "color": "#00c8ff", 
+          "name": "Table Row Hover"
+        },
+        {
           "color": "#ffffff",
           "name": "White",
           "slug": "p-text"
+        },
+        {
+          "color": "#05104f",
+          "name": "Arctic Base",
+          "slug": "arctic-base"
+        },
+        {
+          "color": "#89d4e8",
+          "name": "Arctic Color",
+          "slug": "arctic-color"
+        },
+        {
+          "color": "#edf6f7",
+          "name": "Ice",
+          "slug": "arctic-text"
         }
       ]
     },

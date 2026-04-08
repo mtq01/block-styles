@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "title": "Glow Button",
+  "blockTypes": ["core/button"],
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--btn-bg)",
+      "text": "var(--wp--preset--color--btn-text)"
+    },
+    "border": {
+      "radius": "5rem"
+    },
+    "spacing": {
+      "padding": "0.75rem 1.5rem"
+    },
+    "typography": {
+      "fontWeight": "600",
+      "textTransform": "uppercase"
+    }
+  }
+}

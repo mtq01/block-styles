@@ -1,0 +1,20 @@
+ul.is-style-checkmark {
+    list-style-type: none;
+}
+
+ul.is-style-checkmark li {
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 0.5em;
+}
+
+
+/* Unicode: https://unicodeplus.com/ */
+ul.is-style-checkmark li::before {
+    content: "\1F5F8";
+    position: absolute;
+    left: 0;
+    color: var(--wp--preset--color--primary, #007cba); 
+    font-weight: bold;
+}
+

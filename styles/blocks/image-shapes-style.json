@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "title": "Star",
+  "name": "star",
+  "blockTypes": ["core/image"],
+  "styles": {
+    "border": {
+      "color": "var(--wp--preset--color--primary)",
+      "style": "solid",
+      "width": "0.25rem"
+    }
+  }
+}

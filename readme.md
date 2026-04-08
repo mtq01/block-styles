@@ -1,43 +1,118 @@
-### Step 1:
-
-**Open your theme in VSCode.**
-
-**Create a modular folder structure:**
-- `styles/blocks/` *(for your `.json` block variations).*
-- `assets/css/blocks/` *(for the specific CSS that goes with each variation).*    
-- **Create a unique `.json` file** (ex. `paragraph-glow.json`) inside `styles/blocks/`
+**Documentation**: 
+https://developer.wordpress.org/themes/features/block-style-variations/
+https://developer.wordpress.org/block-editor/reference-guides/block-api/block-styles/
 
 
-### Step 2:
+# Block Styles
 
-*using my glow paragraph block as an example*
+*There are 2 main for approaches creating block styles:*
 
-**In `theme.json`:** Define the **global palette** (colours like `glow-color` and `glow-bg`).
+**1. [Classic / Manual]:  Steps** 
+-`functions.php` to wire everything up manually in PHP (basically how we did today)
+- `CSS Files` that live in `assets/css/blocks`
+- `register_block_style()` to register the style & add it to the block editor UI
+- `wp_enqueue_block_style()` to load the CSS (only when the block is used)
+- *This approach does not require an additional `.json` file & if one is used it will conflict with the manual `functions.php` approach.*
 
-**In your `paragraph-glow.json`:**
+**[Important]**:  With Classic, the reason an additional `.json` file is not needed is bcuz we have already **declared** `core/paragraph` in the function file *(See the screenshot, line 27)*.
 
-- Add the `title` (ex. "Glow").
+**2. [Modern  / Automatic]: Steps** 
+- Auto registers the block style if you use this **folder** structure: `styles/blocks/arctic-paragraph.json`
+- `wp_enqueue_block_style()` is still required for css `assets/css/blocks/arctic-paragraph-glow.css`
+- Requires WP v6.6 or higher (Latest WP version is 6.9)
 
-- Target the `blockTypes` (ex. `["core/paragraph"]`).
+**[Important]**: With the Modern approach, your `.json` file tells WP the new block style exists **without needing** to use `register_block_styles()`
 
-- **Map the UI:** set the `styles` to use the variables you defined in `theme.json`.
+## Conflicts
 
-**Tip:** linking the JSON styles to your `theme.json` variables, allows the user to change the "glow colour" in the WordPress Global Styles sidebar and the block will update automatically.
+If the `.json` files are auto-registering a style with the same `name` as what you're calling in `register_block_styles`, WP ends up with duplicate registrations which can cause the following issues:
 
-### Step 3:
+- Styles appearing twice in the Block Editor
+- One registration silently overriding another.
+- CSS not loading as expected bcuz WP gets confused about which registered style it needs. (the JSON files end up competing with each other and neither wins)
 
-- **create a specific CSS file** for this block (e.g., `assets/css/blocks/paragraph-glow.css`).
 
-- **write your "advanced" styles:** use this file for things JSON can't do, like ***hovers, transitions, and complex box shadows.***
+----------------------------------------------------------------------------------------------------
 
-- **use relative colour syntax:** Where possible, Instead of hard-coding colours, use `rgb(from var(--wp--preset--color--glow-color) r g b / 0.5)` to ensure your glow stays synced with the user's colour choices. (see the glow paragraph example)
 
-### Step 4:
+# Creating Block Styles - Workflow
 
-**In `functions.php`:**
+## Classic / Manual Approach
 
-1. **register the style:** use `register_block_style()` so the "glow" button appears in the UI.
+### Step 1: Set Up Your Folder Structure
 
-2. **enqueue for performance:** use `wp_enqueue_block_style()` to point to your new `paragraph-glow.css` *(ensures the code **only** loads when the block is used)*.
+open your theme in VSCode and create this folder path:
 
-3. **sync the editor:** use `add_editor_style()` so the glow looks perfect inside the Gutenberg editor.
+- `assets/css/blocks/`
+
+
+### Step 2: Write Your CSS
+
+- create your CSS file, example: `blocktype-style.css` & add your styles.
+- consider what you can/cant style in the Block Editor UI
+
+Where possible, use variables (you will see how i used this in `paragprah-glow-style.css`):
+```
+rgb(from var(--wp--preset--color--glow-color) r g b / 0.5)
+```
+
+### Step 3: Register everything in `functions.php`
+
+1. **register the style** — `register_block_style()` adds the style option to the block editor UI
+2. **enqueue the CSS** — `wp_enqueue_block_style()` loads your CSS, only on pages where the block is used
+3. **sync the editor** — `add_editor_style()` ensures the style previews correctly inside Gutenberg
+
+> If using multiple styles (3+ ish), use the classic version of the universal loader in `functions.php`. it loops through a hardcoded `$styles` array so you don't have to register and enqueue each one manually.
+
+finished. easy.
+
+
+## Modern / Automatic (JSON)
+
+### Step 1: Set Up Your Folder Structure
+
+Open your theme in VSCode and create these folders:
+
+- `styles/blocks/` to hold your unique `.json` file
+- `assets/css/blocks/` to hold the block CSS file
+
+**naming convention:** JSON and CSS filenames must match if you're using the **Modern/Automatic Loop**
+- example: `paragraph-glow.json` and `paragraph-glow.css`
+
+> if you're only registering a couple block styles, you can use `bs_register_block_styles()` instead and skip the universal loader entirely.
+
+
+
+### Step 2: Define Your Style in JSON
+
+*using the glow paragraph as an example.*
+
+**in `theme.json`:** define any global palette values your style depends on (ex. `glow-color`, `glow-bg`).
+
+**in `styles/blocks/paragraph-glow.json`:**
+- set a `title` (ex. `"Glow"`)
+- set `blockTypes` to target the correct block (ex. `["core/paragraph"]`)
+- map your `styles` to the variables defined in `theme.json`
+
+> linking your JSON styles to `theme.json` variables means users can change the glow colour in the WP blobal styles sidebar and the block updates automatically.
+
+
+
+### Step 3: Write Your CSS
+
+create `assets/css/blocks/your-block-style.css` & write CSS for anything JSON can't handle (hovers, transitions, complex box shadows, all the fun stuff.)
+
+where possible, use variables (in `paragraph-glow-style` there is an example of this)
+``` exmaple:
+rgb(from var(--wp--preset--color--glow-color) r g b / 0.5)
+```
+this keeps your styles synced with the user's colour choices in Global Styles. takes some critical thinkig to get right
+
+---
+
+### Step 4: Register Everything in `functions.php`
+
+1. **enqueue the CSS** — `wp_enqueue_block_style()` loads your CSS, only on pages where the block is used
+2. **sync the editor** — `add_editor_style()` ensures the style previews correctly inside Gutenberg
+
+> `register_block_style()` is **not** needed. the JSON file handles registration automatically.
