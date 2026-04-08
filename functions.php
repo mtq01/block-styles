@@ -50,7 +50,7 @@ function bs_enqueue_block_styles()
 
     // img masks
     wp_enqueue_block_style('core/image', array(
-        'handle' => 'bs-shapes-style',
+        'handle' => 'bs-star-style',
         'src'    => get_theme_file_uri('assets/css/blocks/image-shapes-style.css'),
         'path'   => get_theme_file_path('assets/css/blocks/image-shapes-style.css'),
     ));
