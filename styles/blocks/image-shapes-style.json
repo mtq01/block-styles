@@ -1,10 +1,13 @@
 {
   "version": 3,
-  "title": "Custom Shapes",
+  "title": "Star",
+  "name": "star",
   "blockTypes": ["core/image"],
-  "styles": [
-    { "name": "diamond", "label": "Diamond" },
-    { "name": "star", "label": "Star" },
-    { "name": "hexagon", "label": "Hexagon" }
-  ]
+  "styles": {
+    "border": {
+      "color": "var(--wp--preset--color--primary)",
+      "style": "solid",
+      "width": "0.25rem"
+    }
+  }
 }

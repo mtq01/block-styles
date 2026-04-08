@@ -1,23 +1,7 @@
-/* diamond */
-.is-style-diamond img {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    object-fit: cover;
-    aspect-ratio: 1/1;
-}
-
 /* star */
 .is-style-star img {
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    object-fit: cover;
-    aspect-ratio: 1/1;
-}
-
-/* hexagon */
-.is-style-hexagon img {
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     object-fit: cover;
     aspect-ratio: 1/1;
 }
