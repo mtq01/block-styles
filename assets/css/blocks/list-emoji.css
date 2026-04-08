@@ -2,20 +2,19 @@
 
 ul.is-style-emoji {
     list-style-type: none;
-    padding-left: 0;
 }
 
 ul.is-style-emoji li {
     position: relative;
-    padding-left: 2em;
+    padding-left: 2em; /* Gives space for the emoji icon */
     margin-bottom: 0.5em;
 }
 
 ul.is-style-emoji li::before {
     content: "\1F60F"; /* Smirk emoji */
-    left:0;
-    top:0;
     position: absolute;
+    left: 0;
+    top: 0; /* Aligns vertically with the text */
     font-size: 1.2em;
     transition: transform 0.2s ease;
 }

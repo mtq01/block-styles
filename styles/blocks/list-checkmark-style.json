@@ -6,11 +6,17 @@
     "spacing": {
       "padding": {
         "top": "var(--wp--preset--spacing--small)",
-        "bottom": "var(--wp--preset--spacing--small)"
+        "bottom": "var(--wp--preset--spacing--small)",
+        "left": "var(--wp--preset--spacing--medium)",
+        "right": "var(--wp--preset--spacing--medium)"
       }
     },
     "typography": {
       "lineHeight": "1.6"
+    },
+    "color": {
+      "background": "var(--wp--preset--color--arctic-base)",
+      "text": "var(--wp--preset--color--arctic-text)"
     }
   }
   

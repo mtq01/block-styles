@@ -1,6 +1,5 @@
 ul.is-style-checkmark {
     list-style-type: none;
-    padding-left: 0;
 }
 
 ul.is-style-checkmark li {
@@ -18,3 +17,4 @@ ul.is-style-checkmark li::before {
     color: var(--wp--preset--color--primary, #007cba); 
     font-weight: bold;
 }
+
