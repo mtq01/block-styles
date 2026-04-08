@@ -65,22 +65,22 @@ function bs_enqueue_block_styles()
     // checkmark list
     wp_enqueue_block_style('core/list', array(
         'handle' => 'bs-list-checkmark',
-        'src'    => get_theme_file_uri('assets/css/blocks/list-checkmark.css'),
-        'path'   => get_theme_file_path('assets/css/blocks/list-checkmark.css'),
+        'src'    => get_theme_file_uri('assets/css/blocks/list-checkmark-style.css'),
+        'path'   => get_theme_file_path('assets/css/blocks/list-checkmark-style.css'),
     ));
 
     // arrow list
     wp_enqueue_block_style('core/list', array(
         'handle' => 'bs-list-arrow',
-        'src'    => get_theme_file_uri('assets/css/blocks/list-arrow.css'),
-        'path'   => get_theme_file_path('assets/css/blocks/list-arrow.css'),
+        'src'    => get_theme_file_uri('assets/css/blocks/list-arrow-style.css'),
+        'path'   => get_theme_file_path('assets/css/blocks/list-arrow-style.css'),
     ));
 
     // emoji list
     wp_enqueue_block_style('core/list', array(
         'handle' => 'bs-list-emoji',
-        'src'    => get_theme_file_uri('assets/css/blocks/list-emoji.css'),
-        'path'   => get_theme_file_path('assets/css/blocks/list-emoji.css'),
+        'src'    => get_theme_file_uri('assets/css/blocks/list-emoji-style.css'),
+        'path'   => get_theme_file_path('assets/css/blocks/list-emoji-style.css'),
     ));
 
     // MATHAB: duplicate one of the above blocks and change the file paths to match your stuff
